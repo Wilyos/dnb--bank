@@ -166,47 +166,42 @@
 
     <section class="contact" id="contact">
   <h2 class="heading">Contact <span class="bg-gradient-1">Us</span></h2>
-
-  <form class="contact-form" action="#" method="post" autocomplete="off">
-    <div class="input-box">
-      <input type="text" name="name" placeholder="Your Name" required>
+  <div class="contact-content">
+    <div class="social-icons">
+      <ul>
+        <li>
+          <a href="https://wa.me/13364739727" target="_blank" title="Send WhatsApp">
+            <i class='bx bxl-whatsapp' ></i>
+          </a>
+          <span class="tag-contact">336 473 9727</span>
+        </li>
+        <li>
+          <a href="mailto:management@bankdv.com">
+            <i class='bx bx-envelope'></i>
+          </a>
+          <span class="tag-contact">management@bankdv.com</span>
+        </li>
+        <li>
+          <a href="https://bankdv.com/" target="_blank">
+            <i class='bx bx-globe'></i>
+          </a>
+          <span class="tag-contact">bankdv.com</span>
+        </li>
+        <li>
+          <a href="https://instagram.com/bank.dv" target="_blank">
+            <i class='bx bxl-instagram'></i>
+          </a>
+          <span class="tag-contact">@bank.dv</span>
+        </li>
+      </ul>
     </div>
-    <div class="input-box">
-      <input type="email" name="email" placeholder="Your Email" required>
-    </div>
-    <div class="input-box">
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-
-  <div class="social-icons">
-    <ul>
-      <li>
-        <a href="https://wa.me/13364739727" target="_blank" title="Send WhatsApp">
-          <i class='bx bxl-whatsapp' ></i>
-        </a>
-        <span class="tag-contact">336 473 9727</span>
-      </li>
-      <li>
-        <a href="mailto:management@bankdv.com">
-          <i class='bx bx-envelope'></i>
-        </a>
-        <span class="tag-contact">management@bankdv.com</span>
-      </li>
-      <li>
-        <a href="https://bankdv.com/" target="_blank">
-          <i class='bx bx-globe'></i>
-        </a>
-        <span class="tag-contact">bankdv.com</span>
-      </li>
-      <li>
-        <a href="https://instagram.com/bank.dv" target="_blank">
-          <i class='bx bxl-instagram'></i>
-        </a>
-        <span class="tag-contact">@bank.dv</span>
-      </li>
-    </ul>
+   
+<form id="contact-form" class="contact-form">
+  <input type="text" name="name" placeholder="Your Name" class="input" required />
+  <input type="email" name="email" placeholder="Your Email" class="input" required />
+  <textarea name="message" placeholder="Your Message" class="textarea" required></textarea>
+  <button type="submit" class="btn">Send Message</button>
+</form>
   </div>
     </section>
 
@@ -217,5 +212,21 @@
 
 
   <script src="script.js"></script>
+  
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  window.emailjs.init('B3VB0AHI54MnMTeCL'); // Reemplaza por tu User ID público de EmailJS
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    window.emailjs.sendForm('service_euvx9so', 'template_ihy4utg', this)
+      .then(function() {
+        alert('Message sent successfully!');
+      }, function(error) {
+        alert('Failed to send message. Please try again.');
+      });
+  });
+</script>
+
 </body>
 </html>
