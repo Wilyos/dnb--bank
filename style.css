@@ -56,6 +56,27 @@ a{
   -webkit-backdrop-filter: blur(12px);
 }
 
+.lang-btn {
+  margin-left: 2rem;
+  padding: 0.5em 1.2em;
+  background: var(--main-color-2);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--main-color-2, #BF9A56);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+.lang-btn:hover, .lang-btn:focus {
+  background: var(--main-color);
+  color: var(--text-color);
+  box-shadow: 0 0 16px var(--main-color);
+}
+}
+
 .menu-icon {
   display: none;
   font-size: 3.5rem;
@@ -153,12 +174,29 @@ a{
 }
 
 .home-info h2 span{
-    position: relative;
-    display: inline-block;
-    color: transparent;
-    -webkit-text-stroke: .7px var(--main-color-2);
-    animation: display-text 9s linear infinite;
-    animation-delay: calc(-5s * var(--i));
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: .7px var(--main-color-2);
+}
+.home-info h2 .animated-span {
+    opacity: 0;
+    animation: show-animated-span 6s linear infinite;
+    animation-delay: calc(3s * (var(--i) - 1));
+}
+
+@keyframes show-animated-span {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  45% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+.home-info h2 .static-span {
+  color: var(--text-color);
+  -webkit-text-stroke: 0;
+  animation: none !important;
+}
 }
 
 @keyframes display-text {
