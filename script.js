@@ -36,3 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
+
+
+ window.emailjs.init('B3VB0AHI54MnMTeCL'); // Reemplaza por tu User ID público de EmailJS
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    window.emailjs.sendForm('service_euvx9so', 'template_ihy4utg', this)
+      .then(function() {
+        alert('Message sent successfully!');
+      }, function(error) {
+        alert('Failed to send message. Please try again.');
+      });
+  });
